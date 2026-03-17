@@ -35,7 +35,7 @@
       color: #fff;
     }
 
-    .pointer{
+    .pointer {
       cursor: pointer;
       text-decoration: none;
       color: white;
@@ -183,10 +183,40 @@
       font-size: 20px;
     }
 
+    .menu-toggle {
+      display: none;
+      font-size: 30px;
+      color: white;
+      cursor: pointer;
+    }
+
     /* RESPONSIVO */
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       header {
+        flex-direction: row;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      nav {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background: black;
+        width: 200px;
+        display: none;
         flex-direction: column;
+        padding: 20px;
+      }
+
+      nav a {
+        margin: 10px 0;
+      }
+
+      nav.active {
+        display: flex;
       }
     }
   </style>
@@ -198,7 +228,10 @@
     <h1>
       <a href="#home" class="pointer">InfinityCode</a>
     </h1>
-    <nav>
+
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <nav id="menu">
       <a href="#home">Início</a>
       <a href="#produtos">Produtos</a>
       <a href="#servicos">Serviços</a>
@@ -336,6 +369,18 @@
       event.preventDefault();
       alert("Mensagem enviada com sucesso!");
     }
+
+    function toggleMenu() {
+      const menu = document.getElementById('menu');
+      menu.classList.toggle('active');
+    }
+
+    // fecha o menu ao clicar em um link (mais profissional)
+    document.querySelectorAll('#menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('menu').classList.remove('active');
+      });
+    });
   </script>
 
 </body>
