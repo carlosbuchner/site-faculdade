@@ -1,0 +1,53 @@
+objetivo:
+Landing page, para venda serviços e produtos relacionados a agricultura com drones 
+
+produtos: 
+Drone
+sensores:
+-sensor de condição
+-vibração
+-temperatura
+-telemetria
+
+serviços:
+-Pulverização
+-Analise
+-Assistência
+-Treinamento
+
+Requisitos funcionais:
+A Landing page deve conter um menu no header para navegar entre os componentes da pagina com scroll behavior smooth.
+No header deve conter os seguintes atributos:
+-Inicio(smooth para home).
+-Produtos(smooth para produtos).
+-serviços(smooth para serviços).
+-Contato(smooth para contatos).
+A Landing page deve conter um componente de home com uma imagem ao fundo (background-image) e uma mensagem sobre nossa empresa para nos apresentar, colcoque o home após o header.
+A Landing page deve ter em seu layout uma separação clara entre seus produtos e serviços.
+A Landing page deve conter componentes com cards sobre os produtos e serviços para explica-los em forma de texto.
+Nos cards deve conter duas linhas, onde primeira linha seria uma imagem sobre o produto ou serviço para visualização gráfica do produto/serviço.
+Nos cards deve conter na segunda linha o titulo com nome do serviço/produto e abaixo dele deve haver uma explicação do produto/serviço.
+Os cards devem ter o seguinte comportamento:
+-Ao clicar em alguns dos cards, deve abrir um modal contendo um vídeo sobre aquele produto/serviço.
+O modal deve ter os seguinte comportamento:
+-Ao clicar fora do modal o mesmo devera ser fechado.
+A Landing page deve conter um componente com um formulário para informações de contato ("nos contate").
+O formulário deve pedir:
+-Nome completo
+-Email
+-Numero de celular 
+-Mensagem (TextArea)
+
+requisitos não funcionais
+Deve ser gerado o código em um arquivo html único com html,css,java-script.
+A landing page deve ser responsiva
+
+Antes de gerar o site, leia o meu prompt e me pergunte sobre quaisquer duvidas e so depois gere o site. 
+
+ 
+
+
+ 
+
+
+

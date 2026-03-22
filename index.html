@@ -56,7 +56,6 @@
       padding: 100px 40px;
     }
 
-    /* HOME */
     #home {
       height: 100vh;
       background: url('images/inicio.webp') no-repeat center/cover;
@@ -73,7 +72,6 @@
       border-radius: 10px;
     }
 
-    /* GRID */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -81,12 +79,11 @@
       margin-top: 40px;
     }
 
-    /* CARD */
     .card {
       background: #fff;
       border-radius: 10px;
       overflow: hidden;
-      transition: transform 0.3s;
+      transition: transform .3s;
       cursor: pointer;
     }
 
@@ -104,11 +101,7 @@
       padding: 15px;
     }
 
-    .card-content h3 {
-      margin-bottom: 10px;
-    }
-
-    /* MODAL */
+    /* MODAL NOVO */
     .modal {
       display: none;
       position: fixed;
@@ -122,26 +115,46 @@
       align-items: center;
     }
 
-    .modal-content {
-      width: 80%;
-      max-width: 700px;
-    }
-
-    .modal iframe {
-      width: 100%;
-      height: 400px;
-    }
-
-    #contato {
-      gap: 1rem;
-    }
-
-    #contato h2 {
-      margin-bottom: 1rem;
+    .modal-box {
+      background: #fff;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 500px;
+      padding: 20px;
       text-align: center;
+      position: relative;
     }
 
-    /* FORM */
+    .modal-box img {
+      width: 100%;
+      max-height: 200px;
+      object-fit: contain;
+      margin-bottom: 15px;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 25px;
+      cursor: pointer;
+    }
+
+    h2{
+      text-align: center;
+      user-select: none;
+    }
+
+    .modal-box button {
+      margin-top: 15px;
+      padding: 10px;
+      background: black;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
     form {
       display: flex;
       flex-direction: column;
@@ -157,20 +170,11 @@
       border-radius: 5px;
     }
 
-    button {
-      padding: 10px;
-      background: black;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-
     button:hover {
       background: silver;
       color: black;
     }
 
-    /* WHATSAPP */
     .whatsapp {
       position: fixed;
       bottom: 20px;
@@ -190,12 +194,7 @@
       cursor: pointer;
     }
 
-    /* RESPONSIVO */
-    @media (max-width: 768px) {
-      header {
-        flex-direction: row;
-      }
-
+    @media (max-width:768px) {
       .menu-toggle {
         display: block;
       }
@@ -211,12 +210,12 @@
         padding: 20px;
       }
 
-      nav a {
-        margin: 10px 0;
-      }
-
       nav.active {
         display: flex;
+      }
+
+      nav a {
+        margin: 10px 0;
       }
     }
   </style>
@@ -225,12 +224,8 @@
 <body>
 
   <header>
-    <h1>
-      <a href="#home" class="pointer">InfinityCode</a>
-    </h1>
-
+    <h1><a href="#home" class="pointer">InfinityCode</a></h1>
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-
     <nav id="menu">
       <a href="#home">Início</a>
       <a href="#produtos">Produtos</a>
@@ -251,7 +246,8 @@
     <h2>Produtos</h2>
     <div class="grid">
 
-      <div class="card" onclick="openModal()">
+      <div class="card" onclick="openModal(this)"
+        data-desc="Drone profissional desenvolvido para revolucionar o trabalho no campo com tecnologia de ponta. Ideal para agricultura de precisão, ele permite monitorar plantações, identificar pragas e otimizar o uso de insumos. Com alta autonomia de voo e imagens em tempo real, facilita decisões rápidas e eficientes. Aumente sua produtividade e reduza custos com um controle total da sua lavoura. Simples de usar, é a solução inteligente para o produtor rural moderno.">
         <img src="images/drone1.jpg">
         <div class="card-content">
           <h3>Drone</h3>
@@ -259,7 +255,8 @@
         </div>
       </div>
 
-      <div class="card" onclick="openModal()">
+      <div class="card" onclick="openModal(this)"
+        data-desc="Sensor inteligente desenvolvido para acompanhar a saúde da lavoura em tempo real com alta precisão. Ele analisa fatores como umidade, temperatura e qualidade do solo, ajudando a identificar problemas antes que se agravem. Com dados claros e atualizados, facilita a tomada de decisões no campo. Reduza perdas e aumente a produtividade com monitoramento contínuo. Tecnologia simples e eficiente para um cultivo mais inteligente..">
         <img src="images/sensor.jpg">
         <div class="card-content">
           <h3>Sensor de Condição</h3>
@@ -267,7 +264,8 @@
         </div>
       </div>
 
-      <div class="card" onclick="openModal()">
+      <div class="card" onclick="openModal(this)"
+        data-desc="Sensor de vibração ideal para monitorar o funcionamento de máquinas agrícolas com alta precisão. Ele detecta variações e anomalias que indicam possíveis falhas mecânicas antes que se tornem problemas graves. Com análise em tempo real, ajuda a evitar paradas inesperadas e reduzir custos com manutenção. Aumente a vida útil dos equipamentos e garanta mais eficiência no trabalho. Tecnologia prática para manter sua operação sempre em pleno funcionamento..">
         <img src="images/sensor de vibraçaõ.png">
         <div class="card-content">
           <h3>Sensor de Vibração</h3>
@@ -275,7 +273,8 @@
         </div>
       </div>
 
-      <div class="card" onclick="openModal()">
+      <div class="card" onclick="openModal(this)"
+        data-desc="Sensor térmico desenvolvido para monitorar e controlar a temperatura com alta precisão. Ideal para lavouras e ambientes agrícolas, ele ajuda a manter condições ideais para o desenvolvimento das culturas. Com dados em tempo real, permite agir rapidamente contra variações que podem prejudicar a produção. Aumente a produtividade e reduza perdas com um controle eficiente. Solução prática e essencial para um cultivo mais seguro e inteligente..">
         <img src="images/sensor-de-temperatura.png">
         <div class="card-content">
           <h3>Sensor de Temperatura</h3>
@@ -283,7 +282,8 @@
         </div>
       </div>
 
-      <div class="card" onclick="openModal()">
+      <div class="card" onclick="openModal(this)"
+        data-desc="Sistema de telemetria desenvolvido para monitorar operações agrícolas em tempo real com alta precisão. Ele coleta e transmite dados importantes, permitindo decisões rápidas e mais assertivas no campo. Ideal para acompanhar máquinas, lavouras e desempenho geral da produção. Reduza custos, aumente a eficiência e tenha total controle das operações. Tecnologia essencial para uma gestão rural moderna e inteligente..">
         <img src="images/telemetria.png">
         <div class="card-content">
           <h3>Telemetria</h3>
@@ -298,7 +298,8 @@
     <h2>Serviços</h2>
     <div class="grid">
 
-      <div class="card" onclick="openModal()">
+      <div class="card" onclick="openModal(this)"
+        data-desc="Pulverização agrícola com drones que garante aplicação precisa e uniforme dos insumos. A tecnologia permite atingir áreas de difícil acesso, reduzindo desperdícios e otimizando o uso de produtos. Com maior eficiência operacional, diminui custos e aumenta a produtividade da lavoura. Além disso, reduz o contato direto com defensivos, trazendo mais segurança ao operador. Solução moderna e inteligente para um campo mais produtivo e sustentável..">
         <img src="images/pulverização.png">
         <div class="card-content">
           <h3>Pulverização</h3>
@@ -306,7 +307,8 @@
         </div>
       </div>
 
-      <div class="card" onclick="openModal()">
+      <div class="card" onclick="openModal(this)"
+        data-desc="Análise completa da lavoura com coleta de dados detalhados para uma gestão mais eficiente. O sistema identifica falhas, pragas e necessidades específicas de cada área do cultivo. Com informações precisas em tempo real, facilita decisões rápidas e estratégicas. Aumente a produtividade e reduza desperdícios com um controle mais inteligente. Solução essencial para um agronegócio moderno e de alto desempenho..">
         <img src="images/analise.png">
         <div class="card-content">
           <h3>Análise</h3>
@@ -314,7 +316,8 @@
         </div>
       </div>
 
-      <div class="card" onclick="openModal()">
+      <div class="card" onclick="openModal(this)"
+        data-desc="Assistência técnica especializada para garantir o melhor desempenho dos seus equipamentos. Equipe preparada para oferecer suporte rápido, manutenção preventiva e corretiva com eficiência. Evite paradas inesperadas e aumente a vida útil das suas máquinas. Atendimento ágil e confiável para manter sua operação sempre funcionando. Solução completa para quem busca segurança e tranquilidade no campo..">
         <img src="images/assitencia.png">
         <div class="card-content">
           <h3>Assistência</h3>
@@ -322,7 +325,7 @@
         </div>
       </div>
 
-      <div class="card" onclick="openModal()">
+      <div class="card" onclick="openModal(this)" data-desc="Treinamento completo para operação de drones agrícolas, ideal para iniciantes e profissionais. Aprenda desde o básico até técnicas avançadas de voo e aplicação no campo. Com aulas práticas e teóricas, você ganha segurança e eficiência no uso da tecnologia. Aumente sua produtividade e aproveite ao máximo os recursos do equipamento. Capacitação essencial para quem quer inovar e crescer no agronegócio..">
         <img src="images/treinamemto.png">
         <div class="card-content">
           <h3>Treinamento</h3>
@@ -344,25 +347,40 @@
     </form>
   </section>
 
-  <!-- MODAL -->
+  <!-- MODAL NOVO -->
   <div class="modal" id="modal" onclick="closeModal(event)">
-    <div class="modal-content">
-      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+    <div class="modal-box">
+      <span class="close">&times;</span>
+      <img id="modal-img">
+      <h3 id="modal-title"></h3>
+      <p id="modal-desc"></p>
+      <button onclick="comprar()">Comprar / Saiba Mais</button>
     </div>
   </div>
 
-  <!-- WHATSAPP -->
   <a class="whatsapp" href="https://wa.me/553299387461" target="_blank">💬</a>
 
   <script>
-    function openModal() {
+    function openModal(card) {
+      const img = card.querySelector('img').src;
+      const title = card.querySelector('h3').innerText;
+      const desc = card.getAttribute('data-desc');
+
+      document.getElementById('modal-img').src = img;
+      document.getElementById('modal-title').innerText = title;
+      document.getElementById('modal-desc').innerText = desc;
+
       document.getElementById('modal').style.display = 'flex';
     }
 
     function closeModal(e) {
-      if (e.target.id === 'modal') {
+      if (e.target.id === 'modal' || e.target.classList.contains('close')) {
         document.getElementById('modal').style.display = 'none';
       }
+    }
+
+    function comprar() {
+      window.open('https://wa.me/553299387461', '_blank');
     }
 
     function enviarFormulario(event) {
@@ -375,12 +393,6 @@
       menu.classList.toggle('active');
     }
 
-    // fecha o menu ao clicar em um link (mais profissional)
-    document.querySelectorAll('#menu a').forEach(link => {
-      link.addEventListener('click', () => {
-        document.getElementById('menu').classList.remove('active');
-      });
-    });
   </script>
 
 </body>
